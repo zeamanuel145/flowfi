@@ -1,0 +1,37 @@
+{
+  "name": "FlowFi — Money Tracker",
+  "short_name": "FlowFi",
+  "description": "Smart shared money tracking for 3 people",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["finance", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/dashboard",
+      "description": "View your financial overview"
+    },
+    {
+      "name": "Add Transaction",
+      "url": "/transactions",
+      "description": "Add a new transaction"
+    }
+  ]
+}
