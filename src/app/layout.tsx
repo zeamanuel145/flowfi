@@ -3,6 +3,7 @@ import { Inter, Source_Code_Pro } from 'next/font/google';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
 import { AuthSessionProvider } from '@/components/layout/AuthSessionProvider';
 import { Toaster } from 'sonner';
+import { Analytics } from "@vercel/analytics/next"
 // Suppress missing type declarations for CSS side-effect import
 // @ts-ignore
 import '@/styles/globals.css';
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
+        <Analytics/>
         <AuthSessionProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             {children}
