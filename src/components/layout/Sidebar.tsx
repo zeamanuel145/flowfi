@@ -5,7 +5,7 @@ import { useState } from 'react';
 import {
   LayoutDashboard, ArrowLeftRight, BarChart3, Target,
   Wallet, Settings, ChevronLeft, TrendingUp, PiggyBank,
-  Repeat2, Zap, Sparkles,
+  Repeat2, Zap,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';

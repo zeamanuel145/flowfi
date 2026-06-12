@@ -136,7 +136,11 @@ export default function AnalyticsPage() {
                       <Cell key={i} fill={entry.color} strokeWidth={0} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(v: number) => [formatCurrency(v), '']}
+                  <Tooltip
+                    formatter={(value: any) => {
+                      const v = typeof value === 'number' ? value : Number(value);
+                      return Number.isFinite(v) ? [formatCurrency(v), ''] : ['', ''];
+                    }}
                     contentStyle={{ background: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 12, fontSize: 12 }}
                   />
                 </PieChart>
