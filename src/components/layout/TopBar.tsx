@@ -1,11 +1,15 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import { Moon, Sun, Bell, Plus, LogOut, User } from 'lucide-react';
+import { Moon, Sun, Bell, Plus, LogOut, User, Menu } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useSession, signOut } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { AddTransactionDialog } from '@/components/transactions/AddTransactionDialog';
 import { useState } from 'react';
+
+interface TopBarProps {
+  onMobileMenuToggle?: () => void;
+}
 
 const PAGE_TITLES: Record<string, string> = {
   '/dashboard': 'Dashboard',
@@ -18,7 +22,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/settings': 'Settings',
 };
 
-export function TopBar() {
+export function TopBar({ onMobileMenuToggle }: TopBarProps) {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const { data: session } = useSession();
@@ -33,6 +37,14 @@ export function TopBar() {
     <>
       <header className="h-16 flex items-center justify-between px-4 md:px-6 border-b border-border/60 bg-card/50 backdrop-blur-sm flex-shrink-0">
         <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="w-9 h-9 rounded-xl md:hidden"
+            onClick={onMobileMenuToggle}
+          >
+            <Menu className="h-4 w-4" />
+          </Button>
           <h1 className="font-display text-xl font-bold">{title}</h1>
         </div>
 
